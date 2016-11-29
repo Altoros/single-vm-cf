@@ -3,12 +3,12 @@
 set -e
 
 if [[ -z $1 ]]; then
-    >&2 echo "Usage:"
-    >&2 echo -e "\t$0 <domain>"
-    exit 1
+    domain=$(curl -s http://169.254.169.254/latest/meta-data/public-ipv4).xip.io
+else
+    domain=$1
 fi
 
-domain=$1
+>&2 echo "Use $domain for domain"
 
 rm /var/vcap/data -rf
 mv /var/vcap/data_copy /var/vcap/data
@@ -64,6 +64,8 @@ start_remaining() {
 
 
 start_services postgres
+start_services nats
+start_services etcd
 
 start_remaining
 total=$(total_services)
