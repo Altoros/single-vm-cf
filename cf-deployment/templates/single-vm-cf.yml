@@ -1,0 +1,19 @@
+instance_groups:
+- name: single-vm-cf
+  azs:
+  - z1
+  instances: 1
+  vm_type: default
+  stemcell: default
+  update:
+    max_in_flight: 1
+    serial: true
+  networks:
+  - name: private
+    default: ['gateway', 'dns']
+    static_ips: &1
+    - ((private-ip))
+  - name: public
+    static_ips:
+    - ((public-ip))
+  jobs: []

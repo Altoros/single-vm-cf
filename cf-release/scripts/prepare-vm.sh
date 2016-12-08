@@ -26,7 +26,7 @@ old_ip=$(ip route get 1 | awk '{print $NF;exit}')
 perl -p -i -e "s/\\Q$old_ip\\E/$ip/g" $config_files
 
 domain='domain_placeholder'
-old_domain='matyukevich.cf-training.net'
+old_domain='s-matyukevich.cf-training.net'
 perl -p -i -e "s/\\Q$old_domain\\E/$domain/g" $config_files
 
 export EDITOR=vim

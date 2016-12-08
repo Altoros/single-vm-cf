@@ -1,0 +1,31 @@
+azs:
+- name: z1
+  cloud_properties: {availability_zone: us-west-2c}
+
+vm_types:
+- name: default
+  cloud_properties:
+    instance_type: m4.large
+    ephemeral_disk: {size: 30000, type: gp2}
+    root_disk: {size: 50000, type: gp2}
+
+networks:
+- name: private
+  type: manual
+  subnets:
+  - range: 10.0.0.0/24
+    gateway: 10.0.0.1
+    az: z1
+    static: [10.0.0.8]
+    reserved: [10.0.0.2 - 10.0.0.6] 
+    dns: [10.0.0.2]
+    cloud_properties: {subnet: subnet-6b097033}
+- name: public
+  type: vip
+
+compilation:
+  workers: 5
+  reuse_compilation_vms: true
+  az: z1
+  vm_type: default
+  network: private
