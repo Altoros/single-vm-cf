@@ -1,36 +1,50 @@
 ---
 - type: replace
-  path: /instance_groups/name=mysql/jobs/name=mysql/properties/cf_mysql/broker?
+  path: /instance_groups/name=mysql/jobs/-
   value: 
-    auth_username: admin
-    auth_password: admin
-    cookie_secret: 94046872-2602-4ca6-8d07-8b0da9762477
-    quota_enforcer:
-      password: admin
-    ssl_enabled: false
-    services:
-    - name: p-mysql
-      plan_updateable: true
-      id: 44b26033-1f54-4087-b7bc-da9652c2a539
-      description: MySQL databases on demand
-      tags: [mysql]
-      metadata:
-        displayName: MySQL
-        longDescription: "MySQL service for application development and testing."
-      dashboard_client:
-        id: p-mysql
-        secret: p-mysql-secret
-      plans:
-      - name: 512mb
-        id: ab08f1bc-e6fc-4b56-a767-ee0fea6e3f20
-        description: MySQL Server
-        max_storage_mb: 512
-        max_user_connections: 10
-      - name: 1gb
-        id: 11d0aa36-dcec-4021-85f5-ea4d9a5c8342
-        description: MySQL Server
-        max_storage_mb: 1024
-        max_user_connections: 20
-    nginx:
-      ip: 127.0.0.1
-      port: 19284
+    name: mysql-broker
+    release: cf-mysql
+    properties:
+      nats: 
+        machines: [ ((private-ip)) ]
+        password: "((nats_password))"
+        port: 4222
+        user: "((nats_user))"
+      cf_mysql:
+        host: mysql-broker.local.pcfdev.io
+        external_host: mysql-broker.local.pcfdev.io
+        mysql:
+          admin_password: "((cf_mysql_mysql_admin_password))"
+        broker:
+          auth_username: admin
+          auth_password: admin
+          cookie_secret: 94046872-2602-4ca6-8d07-8b0da9762477
+          quota_enforcer:
+            password: admin
+          ssl_enabled: false
+          services:
+          - name: p-mysql
+            plan_updateable: true
+            id: 44b26033-1f54-4087-b7bc-da9652c2a539
+            description: MySQL databases on demand
+            tags: [mysql]
+            metadata:
+              displayName: MySQL
+              longDescription: "MySQL service for application development and testing."
+            dashboard_client:
+              id: p-mysql
+              secret: p-mysql-secret
+            plans:
+            - name: 512mb
+              id: ab08f1bc-e6fc-4b56-a767-ee0fea6e3f20
+              description: MySQL Server
+              max_storage_mb: 512
+              max_user_connections: 10
+            - name: 1gb
+              id: 11d0aa36-dcec-4021-85f5-ea4d9a5c8342
+              description: MySQL Server
+              max_storage_mb: 1024
+              max_user_connections: 20
+          nginx:
+            ip: 127.0.0.1
+            port: 19284
