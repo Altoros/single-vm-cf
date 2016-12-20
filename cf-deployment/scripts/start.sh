@@ -12,7 +12,6 @@ fi
 
 rm /var/vcap/data -rf
 mv /var/vcap/data_copy /var/vcap/data
-rm /var/vcap/store/* -rf
 
 # Replace the old system domain / IP with the new system domain / IP
 

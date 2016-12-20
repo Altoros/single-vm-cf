@@ -11,7 +11,14 @@ set -u
 monit stop all
 # wain for all jobs to be stopped
 rsync -a /var/vcap/data/ /var/vcap/data_copy/
+rm /var/vcap/store/* -rf
+rm /var/vcap/data_copy/sys/log/* -rf
+rm /var/vcap/data_copy/sys/run/* -rf
 rm /etc/service/agent
+
+# remove 10.0.0.2 from /etc/reolv.conf
+# modify /etc/network/interfaces:dns-nameservers remove 10.0.0.2
+#modify /etc/dhcp/dhclient.conf remove 10.0.0.2
 
 # remove the following from /etc/init/rsyslog.conf
 # pre-start script

@@ -25,11 +25,6 @@
   value: false
 
 
-- type: replace
-  path: /instance_groups/name=consul/jobs/name=consul_agent/properties/consul/agent/dns_config?/recursor_timeout
-  value: "0s"
-
-
 - type: replace 
   path: /instance_groups/name=cc_bridge/jobs/name=cc_uploader/properties/capi?/cc_uploader/debug_addr
   value: 127.0.0.1:17001
