@@ -59,22 +59,27 @@ start_remaining() {
   done
 }
 
-echo "Executing pre-start scripts..."
-
-for script in /var/vcap/jobs/*/bin/pre-start; do
-  $script
-done
-
 echo "Starting mysql..."
 
+/var/vcap/jobs/mysql/bin/pre-start
 start_services mariadb_ctrl galera-healthcheck
 
 while ! nc -z 127.0.0.1 3306; do
   sleep 1
 done
 
-echo "Starting consul garden etcd uaa..."
-start_services consul_agent garden etcd uaa
+echo "Starting consul..."
+
+/var/vcap/jobs/consul_agent/bin/pre-start
+start_services consul_agent
+
+echo "Executing prestart scripts"
+for script in $(ls /var/vcap/jobs/*/bin/pre-start | grep -v '/mysql/' | grep -v '/consul_agent/' |  grep -v '/cflinuxfs2-rootfs-setup/'); do
+  $script
+done
+
+echo "Starting garden etcd uaa..."
+start_services garden etcd uaa
 
 while [[ ! /var/vcap/jobs/uaa/bin/dns_health_check ]]; do
   sleep 1
@@ -95,8 +100,11 @@ done
 
 echo "$total out of $total running"
 
-#install buildpacks
+echo "install buildpacks..."
 /var/vcap/jobs/cloud_controller_ng/bin/post-start
+
+echo "Wait for rep to start..."
+/var/vcap/jobs/rep/bin/post-start
 
 while [[ $(cc_status_code "$domain") != 200 ]]; do
   sleep 1
