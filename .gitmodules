@@ -1,6 +1,6 @@
 [submodule "cf-release/cf-release"]
 	path = cf-release/cf-release
-	url = git@github.com/cloudfoundry/cf-release
+	url = git@github.com:cloudfoundry/cf-release
 [submodule "cf-deployment/cf-deployment"]
 	path = cf-deployment/cf-deployment
 	url = git@github.com:cloudfoundry/cf-deployment.git
