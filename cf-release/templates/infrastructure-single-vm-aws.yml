@@ -535,6 +535,27 @@ properties:
 
   login:
     saml:
+      serviceProviderCertificate: |
+        -----BEGIN CERTIFICATE-----
+        MIIDNDCCAhygAwIBAgIQTVexjWae+B3x4Yt4goBidzANBgkqhkiG9w0BAQsFADA2
+        MQwwCgYDVQQGEwNVU0ExFjAUBgNVBAoTDUNsb3VkIEZvdW5kcnkxDjAMBgNVBAMT
+        BXVhYUNBMB4XDTE3MDIyMTIzMDIwOVoXDTE4MDIyMTIzMDIwOVowPzEMMAoGA1UE
+        BhMDVVNBMRYwFAYDVQQKEw1DbG91ZCBGb3VuZHJ5MRcwFQYDVQQDDA51YWFfbG9n
+        aW5fc2FtbDCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBALvQLUQentQn
+        hWzZ9YGxur0hSRX8yyTxowNAnSZ1R10wBE9tMezDrQaFIs7Saq4nszVhFOlpBDMG
+        axkR24diDB29CSD3OEmN2LN+pDz0K1oRSVf6A4VCm+ZHYNgjZjFpStbsJzC8CFPc
+        9O10726uyATUxdbIxDgtiX+267AoPRRhzFLW4OKl9IezXMkwHqcUF4cDymWDkOLG
+        M7eXLmWJb8nN9orGeiECayjq7qbPMiFbQRKtUUOwZcfaphJy9pd8CDcf2RzO+jWa
+        VjgiOF0aPl2ixyFqnA1fijpIPRL9vidN/IT1w+UM6Gz9F8SBxyZ13FTXq64ITfBe
+        feX+vqL9M6ECAwEAAaM1MDMwDgYDVR0PAQH/BAQDAgWgMBMGA1UdJQQMMAoGCCsG
+        AQUFBwMBMAwGA1UdEwEB/wQCMAAwDQYJKoZIhvcNAQELBQADggEBALAc7kCE6Zrr
+        jwO1Rh/Gh6rfJrLrAN9S3v6po+1kkMw4ajgbWcwIwBL8O39eKfDvwy5uMKpMJbIS
+        FRpwH+zCjtjQyetQuR9o0PkU+YZFbHHTPE4jNP7ovtZgcBj0BfmRKlYR9+fvJTom
+        D6fGbR0VqRenMPU6j4WEBz1IVJCr/m+QJwCzYYrDdBAF7myeqMQK1a7VTkt7Vnf9
+        sXvYX0Ube/oZdEjbCGmsJmbY+Yoa2TqHzoFYpSY8pKfcxm7bNAkriKJ588zVrMbG
+        3m7pNuwnZNKZjcUclgo1gojVE9EvzshhhyYCo1GC7ctoK5F+b3xwqzf0jc88I8Lz
+        CtP/i+eeQ3c=
+        -----END CERTIFICATE-----
       serviceProviderKey: |
         -----BEGIN RSA PRIVATE KEY-----
         MIIEpAIBAAKCAQEAu9AtRB6e1CeFbNn1gbG6vSFJFfzLJPGjA0CdJnVHXTAET20x
@@ -563,6 +584,7 @@ properties:
         XsJJMJzvcUyC8bz4lUfvJ/RG8wy2xh9Fra4iQ7H0h7hX1JN/DFkQNLpeUEfZOq4y
         QPo05RbJUr/owcUFYakOhF276C1f+mwNRO857xE/IVAD74YrQRbs+g==
         -----END RSA PRIVATE KEY-----
+      serviceProviderKeyPassword: ""
 
   uaa:
     ca_cert: |
