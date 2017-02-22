@@ -147,7 +147,7 @@ jobs:
         - (( "loggregator." .properties.system_domain ))
 
 
-- name: acceptance_tests_errand
+- name: acceptance_tests
   networks:
   - name: default
   instances: 1
@@ -156,7 +156,7 @@ jobs:
   templates:
   - name: acceptance-tests
     release: cf
-- name: smoke_tests_errand
+- name: smoke_tests
   networks:
   - name: default
   instances: 1
