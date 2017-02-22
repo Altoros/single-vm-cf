@@ -25,6 +25,15 @@ meta:
 
 properties:
   <<: (( merge ))
+  smoke_tests:
+    skip_ssl_validation: true
+    api: (( "https://api." .properties.domain ))
+    apps_domain: (( .properties.domain ))
+    org: SMOKE
+    space: TEST
+    user: admin
+    password: admin
+
   databases:
     db_scheme: postgres
     port: 5432
