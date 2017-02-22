@@ -146,7 +146,6 @@ jobs:
         uris:
         - (( "loggregator." .properties.system_domain ))
 
-
 - name: acceptance_tests
   networks:
   - name: default
@@ -156,6 +155,7 @@ jobs:
   templates:
   - name: acceptance-tests
     release: cf
+
 - name: smoke_tests
   networks:
   - name: default

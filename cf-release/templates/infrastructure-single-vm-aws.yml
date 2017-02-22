@@ -22,6 +22,9 @@ meta:
 
   consul_servers: [ (( meta.private_ip )) ] 
 
+jobs:
+- name: smoke_tests
+  instances: 1
 
 properties:
   <<: (( merge ))
