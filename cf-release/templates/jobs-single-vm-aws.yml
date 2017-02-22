@@ -88,6 +88,7 @@ jobs:
               status: passing
           loggregator_trafficcontroller: {}
           gorouter: {}
+          doppler: {}
     dea_next:
       zone: z1
     doppler:
