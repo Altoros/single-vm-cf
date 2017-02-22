@@ -197,7 +197,7 @@ resource_pools:
         size: 40_000
         type: gp2
       availability_zone: (( meta.zones.z1 ))
-  - name: errand
+  - name: small_errand
     network: default
     stemcell: 
       name: bosh-aws-xen-hvm-ubuntu-trusty-go_agent
