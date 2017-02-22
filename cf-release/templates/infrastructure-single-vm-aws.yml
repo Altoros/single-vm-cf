@@ -27,8 +27,8 @@ properties:
   <<: (( merge ))
   smoke_tests:
     skip_ssl_validation: true
-    api: (( "https://api." .properties.domain ))
-    apps_domain: (( .properties.domain ))
+    api: (( "https://api." .meta.system_domain ))
+    apps_domain: (( .meta.system_domain ))
     org: SMOKE
     space: TEST
     user: admin
