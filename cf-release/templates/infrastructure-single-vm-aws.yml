@@ -686,7 +686,7 @@ properties:
       cloud_controller_username_lookup:
         secret: cc-lookup-secret
       doppler:
-        secret: dopler-secret
+        secret: doppler-secret
       gorouter:
         secret: gorouter-secret
       tcp_emitter:
