@@ -99,7 +99,7 @@ jobs:
       zone: z1
     loggregator:
       uaa:
-        client_secret: DOPPLER_SECRET
+        client_secret: (( .properties.uaa.clients.doppler.secret ))
     route_registrar:
       routes:
       - name: blobstore
