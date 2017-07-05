@@ -1056,7 +1056,7 @@ properties:
 compilation:
   network: default
   cloud_properties:
-    instance_type: c3.xlarge
+    instance_type: c4.xlarge
     availability_zone: (( meta.zones.z1 ))
 
 
