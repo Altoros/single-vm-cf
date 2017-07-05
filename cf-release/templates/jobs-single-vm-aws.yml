@@ -191,7 +191,7 @@ resource_pools:
     network: default
     stemcell: 
       name: bosh-aws-xen-hvm-ubuntu-trusty-go_agent
-      version: latest
+      version: 3189
     cloud_properties:
       instance_type: c4.xlarge
       root_disk:
@@ -202,7 +202,7 @@ resource_pools:
     network: default
     stemcell: 
       name: bosh-aws-xen-hvm-ubuntu-trusty-go_agent
-      version: latest
+      version: 3189 
     cloud_properties:
       auto_assign_public_ip: true
       instance_type: c4.large
