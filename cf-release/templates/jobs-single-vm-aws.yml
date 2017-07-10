@@ -191,11 +191,14 @@ resource_pools:
     network: default
     stemcell: 
       name: bosh-aws-xen-hvm-ubuntu-trusty-go_agent
-      version: 3189
+      version: latest
     cloud_properties:
       instance_type: c4.xlarge
       root_disk:
         size: 40_000
+        type: gp2
+      ephemeral_disk:
+        size: 20_000
         type: gp2
       availability_zone: (( meta.zones.z1 ))
   - name: small_errand
